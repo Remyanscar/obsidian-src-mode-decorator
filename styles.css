@@ -1,0 +1,282 @@
+/* ==========================================================
+   1. COLOR CONFIGURATION
+   ========================================================== */
+body.custom-blocks-on {
+    --mn-container-color: hsl(from var(--interactive-accent) calc(h + 120) s l);
+    --mn-callout-color: hsl(from var(--interactive-accent) calc(h - 120) s l);
+}
+
+/* ==========================================================
+   2. METADATA BLOCKS & COMMENTS
+   ========================================================== */
+/* Hide raw HTML syntax tags */
+body.custom-blocks-on .cm-s-obsidian .mn-hide-syntax {
+    display: none !important;
+}
+
+/* Global formatting for editor comments */
+body.custom-blocks-on .cm-s-obsidian .cm-comment {
+    font-size: 0.9em !important;
+    opacity: 0.6;
+}
+
+/* Inner metadata lines */
+body.custom-blocks-on .cm-s-obsidian .cm-line.mn-meta-line {
+    padding-left: 5px;
+    border-right: 1px dashed color-mix(in srgb, var(--mn-callout-color) 50%, transparent) !important;
+}
+
+/* Shared layout for block boundaries */
+body.custom-blocks-on .cm-s-obsidian .cm-line.block-start,
+body.custom-blocks-on .cm-s-obsidian .cm-line.block-end {
+    display: block;
+    width: 100%;
+    padding: 4px 0;
+    text-align: center;
+    font-size: 0.8em !important;
+    color: var(--mn-callout-color) !important;
+}
+
+/* Block start boundary */
+body.custom-blocks-on .cm-s-obsidian .cm-line.block-start {
+    border-top: 1px dashed color-mix(in srgb, var(--mn-callout-color) 50%, transparent) !important;
+    border-right: 1px dashed color-mix(in srgb, var(--mn-callout-color) 50%, transparent) !important;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    background: linear-gradient(to bottom, color-mix(in srgb, var(--mn-callout-color) 15%, transparent), transparent);
+}
+
+/* Block end boundary */
+body.custom-blocks-on .cm-s-obsidian .cm-line.block-end {
+    border-bottom: 1px dashed color-mix(in srgb, var(--mn-callout-color) 50%, transparent) !important;
+    border-right: 1px dashed color-mix(in srgb, var(--mn-callout-color) 50%, transparent) !important;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    background: linear-gradient(to top, color-mix(in srgb, var(--mn-callout-color) 15%, transparent), transparent);
+}
+
+/* Enforce visibility and text styles for comments within boundaries */
+body.custom-blocks-on .cm-s-obsidian .cm-line.block-start .cm-comment,
+body.custom-blocks-on .cm-s-obsidian .cm-line.block-end .cm-comment {
+    color: inherit !important;
+}
+
+/* ==========================================================
+   3. BLOCKQUOTES
+   ========================================================== */
+/* Standard quote lines */
+body.custom-blocks-on .cm-s-obsidian .cm-line.mn-quote-line {
+    border-right: 1px dashed color-mix(in srgb, var(--mn-callout-color) 50%, transparent) !important;
+}
+
+/* Final quote line rounding */
+body.custom-blocks-on .cm-s-obsidian .cm-line.mn-quote-last-line {
+    padding-bottom: 0.9em !important;
+    border-bottom: 1px dashed color-mix(in srgb, var(--mn-callout-color) 50%, transparent) !important;
+    border-bottom-left-radius: 20px !important;
+    border-bottom-right-radius: 20px !important;
+}
+
+/* ==========================================================
+   4. SOURCE LINKS
+   ========================================================== */
+/* Main link container */
+body.custom-blocks-on .cm-s-obsidian .cm-line.mn-source-link {
+    position: relative;
+    padding-top: 0 !important;
+    padding-bottom: 10px !important;
+    text-align: center;
+    border-right: 1px dashed color-mix(in srgb, var(--mn-callout-color) 50%, transparent) !important;
+}
+
+/* Center decorative dashed line */
+body.custom-blocks-on .cm-s-obsidian .cm-line.mn-source-link::after {
+    content: "";
+    position: absolute;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 96%;
+    border-bottom: 1px dashed color-mix(in srgb, currentColor 35%, transparent);
+    pointer-events: none;
+}
+
+/* Hide redundant link formatting syntax */
+body.custom-blocks-on .cm-s-obsidian .cm-line.mn-source-link .cm-comment-start,
+body.custom-blocks-on .cm-s-obsidian .cm-line.mn-source-link .cm-comment-end,
+body.custom-blocks-on .cm-s-obsidian .cm-line.mn-source-link .cm-formatting,
+body.custom-blocks-on .cm-s-obsidian .cm-line.mn-source-link .cm-url,
+body.custom-blocks-on .cm-s-obsidian .cm-line.mn-source-link .cm-comment:not(.cm-link) {
+    display: none !important;
+}
+
+/* ==========================================================
+   5. CONTAINER MODE OVERRIDES
+   ========================================================== */
+/* Remove default right borders for inner container elements */
+body.custom-blocks-on .cm-s-obsidian .cm-line.mn-container-line,
+body.custom-blocks-on .cm-s-obsidian .cm-line.mn-quote-line.mn-container-line,
+body.custom-blocks-on .cm-s-obsidian .cm-line.mn-quote-last-line.mn-container-line {
+    border-right: 2px dashed color-mix(in srgb, currentColor 10%, transparent);
+    border-bottom: none !important;
+}
+
+/* Restore right borders exclusively for block boundaries and links */
+body.custom-blocks-on .cm-s-obsidian .cm-line.block-start.mn-container-line,
+body.custom-blocks-on .cm-s-obsidian .cm-line.mn-meta-line.mn-container-line,
+body.custom-blocks-on .cm-s-obsidian .cm-line.mn-source-link.mn-container-line,
+body.custom-blocks-on .cm-s-obsidian .cm-line.block-end.mn-container-line {
+    border-right: 1px dashed color-mix(in srgb, var(--mn-container-color) 50%, transparent) !important;
+}
+
+/* Apply container color variable */
+body.custom-blocks-on .cm-s-obsidian .cm-line.block-start.mn-container-line,
+body.custom-blocks-on .cm-s-obsidian .cm-line.block-end.mn-container-line {
+    color: var(--mn-container-color) !important;
+}
+
+/* Gradient for container start */
+body.custom-blocks-on .cm-s-obsidian .cm-line.block-start.mn-container-line {
+    border-top: 1px dashed color-mix(in srgb, var(--mn-container-color) 50%, transparent) !important;
+    background: linear-gradient(to bottom, color-mix(in srgb, var(--mn-container-color) 15%, transparent), transparent);
+}
+
+/* Gradient for container end */
+body.custom-blocks-on .cm-s-obsidian .cm-line.block-end.mn-container-line {
+    border-bottom: 1px dashed color-mix(in srgb, var(--mn-container-color) 50%, transparent) !important;
+    background: linear-gradient(to top, color-mix(in srgb, var(--mn-container-color) 15%, transparent), transparent);
+}
+
+/* ==========================================================
+   6. CALLOUT BADGES
+   ========================================================== */
+/* Callout type badge (e.g., Axiom, Note) */
+body.custom-blocks-on .cm-s-obsidian .mn-callout-badge-type {
+    text-transform: capitalize;
+    font-weight: 700;
+    font-size: 0.95em;
+    letter-spacing: 0.03em;
+    color: var(--mn-callout-color) !important;
+    padding: 0 4px 0 2px;
+}
+
+/* Callout unique ID badge (e.g., I.2.4) */
+body.custom-blocks-on .cm-s-obsidian .mn-callout-badge-id {
+    font-weight: 700;
+    font-size: 0.8em;
+    font-family: var(--font-monospace);
+    color: var(--mn-callout-color) !important;
+    background: color-mix(in srgb, var(--mn-callout-color) 15%, transparent) !important;
+    border: 1px dashed color-mix(in srgb, var(--mn-callout-color) 50%, transparent);
+    padding: 0 6px;
+    border-radius: 20px;
+    margin-right: 4px;
+}
+
+/* Callout fold status badge (+ or -) */
+body.custom-blocks-on .cm-s-obsidian .mn-callout-badge-fold {
+    font-weight: 900;
+    font-family: var(--font-monospace);
+    font-size: 0.95em;
+    color: var(--mn-callout-color) !important;
+    padding: 0;
+    margin-right: 2px;
+}
+
+/* ==========================================================
+   7. HORIZONTAL RULES
+   ========================================================== */
+/* Hide raw syntax while retaining caret visibility */
+body.custom-blocks-on .cm-s-obsidian .cm-line.mn-hr-line {
+    position: relative;
+    color: transparent !important;
+    caret-color: var(--text-normal);
+}
+
+/* Hide active formatting syntax */
+body.custom-blocks-on .cm-s-obsidian .cm-line.mn-hr-line * {
+    color: transparent !important;
+}
+
+/* Render horizontal line via pseudo-element */
+body.custom-blocks-on .cm-s-obsidian .cm-line.mn-hr-line::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background-color: var(--background-modifier-border);
+    pointer-events: none;
+}
+
+/* ==========================================================
+   8. CLIPBOARD SPLITTER (%%~%%)
+   ========================================================== */
+body.custom-blocks-on .cm-s-obsidian .mn-splitter-widget {
+    display: inline-flex;
+    align-items: center;
+    width: 100%;
+    color: var(--text-muted); /* Pasuje do koloru domyślnych metadanych */
+    opacity: 0.6;             /* Pasuje do przezroczystości metadanych */
+    margin: 0;                /* Ochrona przed zepsuciem Line Height */
+    padding: 0;
+    line-height: inherit;
+    user-select: none;
+}
+
+body.custom-blocks-on .cm-s-obsidian .mn-splitter-icon {
+    font-size: 1em; /* Zmniejszona wielkość ikony do standardowego tekstu */
+    display: inline-block;
+    opacity: 0.5; /* Dodatkowe 50% przezroczystości narzucone na ikonę */
+}
+
+/* 1ch w CSS to szerokość znaku spacji, dodajemy padding tylko po prawej stronie elementu zamykającego */
+body.custom-blocks-on .cm-s-obsidian .mn-splitter-icon:last-child {
+    padding-right: 1ch;
+}
+
+body.custom-blocks-on .cm-s-obsidian .mn-splitter-line {
+    flex-grow: 1;
+    border-bottom: 1px dashed color-mix(in srgb, currentColor 50%, transparent); /* Ściąga zdefiniowany wyżej kolor */
+    margin: 0 6px; /* Zmniejszony odstęp między nożyczkami a linią */
+}
+
+/* ==========================================================
+   9. EXPORT BUTTON OVERLAYS
+   ========================================================== */
+/* We need to ensure the container line is relative to position the button absolutely */
+body.custom-blocks-on .cm-s-obsidian .cm-line.mn-relative-line {
+    position: relative;
+}
+
+body.custom-blocks-on .cm-s-obsidian .mn-export-button {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px; /* Zmniejszony margines wewnętrzny */
+    border-radius: 4px;
+    color: inherit; /* Dziedziczy dokładnie taki sam kolor co tekst w linii! */
+    opacity: 0.6;   /* Ta sama przezroczystość co metadane */
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    background: transparent;
+}
+
+/* Dostosowanie rozmiaru i grubości ikony SVG */
+body.custom-blocks-on .cm-s-obsidian .mn-export-button svg {
+    width: 13px !important;  /* Znacznie mniejsza ikona */
+    height: 13px !important;
+    stroke-width: 1.5 !important; /* Lżejsza linia dopasowana do wagi tekstu */
+}
+
+/* Subtelny efekt najechania z użyciem dziedziczonego koloru */
+body.custom-blocks-on .cm-s-obsidian .mn-export-button:hover {
+    opacity: 1;
+    /* Tło pod przyciskiem w kolorze tekstu, z 15% widocznością */
+    background: color-mix(in srgb, currentColor 15%, transparent);
+}

@@ -1,0 +1,9 @@
+{
+  "id": "obsidian-src-mode-decorator",
+  "name": "\uD83D\uDCA0 Source Mode Decorator",
+  "version": "1.0.0",
+  "minAppVersion": "0.15.0",
+  "description": "Dynamically decorates specific multi-line blocks with custom CSS classes in Source Mode.",
+  "author": "Remyanscar",
+  "isDesktopOnly": false
+}
